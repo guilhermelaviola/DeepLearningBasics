@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 #%matplotlib inline
 
 # Importing the movies dataset (.csv file)
-underrated_movies = pd.read_csv("/data/Underrated.csv")
+underrated_movies = pd.read_csv("../data/Underrated.csv")
 
 # Training the neuron
 underrated_movies["c_year"] = underrated_movies["Year"].apply(lambda x: 1 if x < 2000 else 0)
