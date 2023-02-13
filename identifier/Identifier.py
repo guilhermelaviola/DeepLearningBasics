@@ -15,6 +15,6 @@ underrated_movies.plot(
     kind="scatter",
     x="c_year",
     y="c_genre",
-    z="c_imdb_rating",
+    c="c_imdb_rating",
     colormap="jet"
 )

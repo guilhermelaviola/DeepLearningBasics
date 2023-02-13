@@ -1,9 +1,11 @@
 import tensorflow
+import pandas as pd
 from keras.layers import Dense
 from keras.optimizers import SGD
 from keras.models import Sequential
-from identifier import Identifier
-from identifier.Identifier import underrated_movies
+
+# Importing the movies dataset (.csv file)
+underrated_movies = pd.read_csv("../data/Underrated.csv")
 
 # Configuring units (amount of neurons), dimensions (categories),
 # the function the neuron will be using and also its loss function
@@ -11,22 +13,21 @@ from identifier.Identifier import underrated_movies
 single_neuron_layer = Dense(
     units=1,
     input_dim=2,
-    activation="sigmoid",
-    loss="binary_crossentropy"
+    activation="sigmoid"
 )
 # Stochastic Gradient Descent - SGD)
 sgd = SGD()
 # Configuring the model in order to make the layers connect to each other sequentially
 single_neuron_model = Sequential()
-identifier = Identifier()
 
+# Configuring the model to be trained
 # Importing all components and checking the configuration with summary()
 single_neuron_model.add(single_neuron_layer)
-single_neuron_model.compile(loss=loss, optimizer=sgd, metrics=["accuracy"])
+single_neuron_model.compile(loss="binary_crossentropy", optimizer=sgd, metrics=["accuracy"])
 single_neuron_model.summary()
 
 # Doing the training
-df = identifier.underrated_movies
+df = underrated_movies
 history = single_neuron_model.fit(
     df[["c_year", "c_gender"]].values,
     df[["c_imdb_rating"]].values,
