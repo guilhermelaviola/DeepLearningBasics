@@ -1,4 +1,4 @@
-# Training a two-neuron model
+# Training a two-neuron model with a better learning rate
 import pandas as pd
 import matplotlib.pyplot as plt
 from keras.layers import Dense
@@ -40,24 +40,24 @@ output_layer = Dense(units=1, activation="sigmoid")
 bad_pizza_model = Sequential()
 bad_pizza_model.add(input_layer)
 bad_pizza_model.add(output_layer)
-sgd = SGD()
+sgd = SGD(learning_rate=1)
 bad_pizza_model.compile(loss="binary_crossentropy", optimizer=sgd, metrics=["accuracy"])
 
 # Displaying the configuration
 # It shows 9 trainable parameters
 bad_pizza_model.summary()
 
-# Training the model
+# Training the model with a higher learning rate
 # The 'epoch' parameter indicates how many times the network
 # must calculate the training data
-history = bad_pizza_model.fit(
+high_learning_model_history = bad_pizza_model.fit(
     bad_pizza_dataset[["c_tomato_sauce", "c_barbecue_sauce"]],
     bad_pizza_dataset["c_result"],
     epochs=3000,
 )
 
 # Finding out the model's performance
-# Output: Evaluation result on Test Data : Loss = 0.015606109984219074, accuracy = 1.0
+# Output: Evaluation result on Test Data : Loss = 0.00013142642274033278, accuracy = 1.0
 test_loss, test_accuracy = bad_pizza_model.evaluate(
     bad_pizza_dataset[["c_tomato_sauce", "c_barbecue_sauce"]],
     bad_pizza_dataset["c_result"]
@@ -66,8 +66,8 @@ print(f"Evaluation result on Test Data : Loss = {test_loss}, accuracy = {test_ac
 
 # Debugging the training to check how the training loss is being altered
 plt.figure(figsize=(7,6))
-plt.plot(history.history["loss"])
-plt.plot(history.history["accuracy"])
+plt.plot(high_learning_model_history.history["loss"])
+plt.plot(high_learning_model_history.history["accuracy"])
 plt.title("Model Training History")
 plt.ylabel("Value")
 plt.xlabel("Epoch")
