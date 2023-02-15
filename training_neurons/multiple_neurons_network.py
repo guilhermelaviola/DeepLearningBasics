@@ -47,7 +47,7 @@ bad_pizza_model.compile(loss="binary_crossentropy", optimizer=sgd, metrics=["acc
 # It shows 9 trainable parameters
 bad_pizza_model.summary()
 
-# Training the model
+# Training the model with BackPropagation algorithm
 # The 'epoch' parameter indicates how many times the network
 # must calculate the training data
 history = bad_pizza_model.fit(
