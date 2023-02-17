@@ -1,3 +1,4 @@
+# Fully Connected Network example
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.pyplot import colorbar, figure
