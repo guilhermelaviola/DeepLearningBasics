@@ -7,7 +7,7 @@ from keras.optimizers import SGD, Adam
 from keras.models import Sequential
 
 # Importing and displaying the dataset (.csv file)
-pizza_types = pd.read_csv("../data/pizza_types.csv", index_col=0)
+pizza_types = pd.read_csv("../data/pizza_types.csv", index_col=0, header=0, delim_whitespace=True)
 print(pizza_types.head())
 
 # We have 5520 lines in this dataset. Generally, we use 80% of the data
@@ -37,7 +37,7 @@ pizza_type_model.summary()
 history_sgd_pizza_type_model = pizza_type_model.fit(
     training_dataset[["corn", "olives", "mushrooms", "spinach", "pineapple",
                       "artichoke", "chilli", "pepper", "onion", "mozzarella",
-                      "egg", "pepperoni", "beef", "chicken", "bacon",]],
+                      "egg", "pepperoni", "beef", "chicken", "bacon"]],
     training_dataset[["vegan", "vegetarian", "meaty"]],
     epochs=200,
     validation_split=0.2,
