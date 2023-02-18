@@ -4,7 +4,7 @@ from keras.layers import Dense
 from keras.optimizers import SGD
 from keras.models import Sequential
 
-# Importing the movies dataset (.csv file)
+# Importing the movie dataset (.csv file)
 underrated_movies = pd.read_csv("../data/Underrated.csv")
 
 # Configuring units (amount of neurons), dimensions (categories),
@@ -29,15 +29,16 @@ single_neuron_model.summary()
 # Doing the training
 df = underrated_movies
 history = single_neuron_model.fit(
-    df[["c_year", "c_gender"]].values,
+    df[["c_year", "c_genre"]].values,
     df[["c_imdb_rating"]].values,
-    epochs=2500)
+    epochs=2500
+)
 
 # Observing the dataset previsions which is being executed by the model
 test_loss, test_accuracy = single_neuron_model.evaluate(
-    underrated_movies[["c_year", "c_gender"]],
-    underrated_movies["c_imdb_rating"],
-print(f"Evaluation result on Test Data : Loss = {test_loss}, Accuracy = {test_accuracy}"))
+    underrated_movies[["c_year", "c_genre"]],
+    underrated_movies["c_imdb_rating"])
+print(f"Evaluation result on Test Data : Loss = {test_loss}, Accuracy = {test_accuracy}")
 
-# Altough the loss in this model is not = 0, its accuraccy reached 1,0 = 100%
-# So it's a successful model for the use case
+# Although the loss in this model is not = 0, its accuracy reached 1.0 = 100%
+# so it's a successful model for the use case

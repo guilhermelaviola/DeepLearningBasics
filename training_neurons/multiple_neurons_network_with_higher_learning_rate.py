@@ -62,7 +62,7 @@ test_loss, test_accuracy = bad_pizza_model.evaluate(
     bad_pizza_dataset[["c_tomato_sauce", "c_barbecue_sauce"]],
     bad_pizza_dataset["c_result"]
 )
-print(f"Evaluation result on Test Data : Loss = {test_loss}, accuracy = {test_accuracy}")
+print(f"Evaluation result on Test Data : Loss = {test_loss}, Accuracy = {test_accuracy}")
 
 # Debugging the training to check how the training loss is being altered
 plt.figure(figsize=(7,6))

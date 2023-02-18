@@ -40,6 +40,8 @@ plt.scatter(
 cbar = colorbar()
 plt.show()
 
+traffic_data = traffic_data.join(pd.get_dummies(traffic_data["day"]))
+
 # Defining what is for training and what is for testing
 training_dataset = traffic_data.sample(frac=0.8)
 testing_dataset = traffic_data[~traffic_data.index.isin(training_dataset.index)]
@@ -73,13 +75,12 @@ traffic_model.compile(loss="binary_crossentropy", optimizer="adam",
 traffic_model.summary()
 
 # Training the model
-batch_size = 100
 history_traffic_model = traffic_model.fit(
     training_dataset[input_columns],
     training_dataset[["c_type"]],
     epochs=30,
     validation_split=0.1,
-    batch_size=batch_size
+    batch_size=100
 )
 
 # Evaluating the test data
@@ -87,6 +88,5 @@ test_loss, test_accuracy = traffic_model.evaluate(
     testing_dataset[input_columns],
     testing_dataset["c_type"]
 )
-print(f"Evaluation result on Test Data : Loss = {test_loss}, accuracy = {test_accuracy}")
-# Loss:
-# Accuracy:
+print(f"Evaluation result on Test Data : Loss = {test_loss}, Accuracy = {test_accuracy}")
+# Loss = 0.11826030910015106, Accuracy = 0.9959715008735657

@@ -1,3 +1,4 @@
+# Basic training
 import pandas as pd
 import matplotlib.pyplot as plt
 #%matplotlib inline
@@ -11,6 +12,7 @@ underrated_movies["c_genre"] = underrated_movies["Genres"].apply(lambda x: 1 if 
 underrated_movies["c_imdb_rating"] = underrated_movies["IMDb Rating"].apply(lambda x: 1 if x >= 6 else 0)
 print(underrated_movies.head())
 
+# Plotting a graph with the training data
 underrated_movies.plot(
     kind="scatter",
     x="c_year",
@@ -18,3 +20,5 @@ underrated_movies.plot(
     c="c_imdb_rating",
     colormap="jet"
 )
+
+plt.show()
