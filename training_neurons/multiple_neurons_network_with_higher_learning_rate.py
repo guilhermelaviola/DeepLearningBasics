@@ -65,7 +65,7 @@ test_loss, test_accuracy = bad_pizza_model.evaluate(
 print(f"Evaluation result on Test Data : Loss = {test_loss}, Accuracy = {test_accuracy}")
 
 # Debugging the training to check how the training loss is being altered
-plt.figure(figsize=(7,6))
+plt.figure(figsize=(7, 6))
 plt.plot(high_learning_model_history.history["loss"])
 plt.plot(high_learning_model_history.history["accuracy"])
 plt.title("Model Training History")
