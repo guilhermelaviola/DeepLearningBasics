@@ -1,7 +1,7 @@
 # DeepLearningBasics
 The basic concepts of Deep Learning (DL) exemplified based on the content I've been studying in college.
 
-Sigmoid / RELU / Tanh
+Sigmoid / RELU / Tanh:
 file:///C:/Users/guilh/Desktop/Sigmoid%20RELU%20Tanh.jpg
 
 Fully Connected Neural Network results on my console:
