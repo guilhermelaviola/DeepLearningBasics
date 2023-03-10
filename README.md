@@ -6,3 +6,5 @@ file:///C:/Users/guilh/Desktop/Sigmoid%20RELU%20Tanh.jpg
 
 Fully Connected Neural Network results on my console:
 ![image](https://user-images.githubusercontent.com/31170255/224188143-935e083f-2187-4534-9ebc-c70c7806d9df.png)
+
+file:///C:/Users/guilh/Desktop/Sigmoid%20RELU%20Tanh.jpg
